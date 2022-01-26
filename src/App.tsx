@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Title from "./Components/Title/Title";
+import ListIcon from "./Media/list.png";
+import Subtitle from "./Components/Subtitle/Subtitle";
+import ElementAdder from "./Components/ElementAdder/ElementAdder";
+import Category from "./Components/Category/Category";
 
 function App() {
+  const initialCategoryState: string[] | [] = [];
+
+  const [categoryState, setCategoryState] = useState(initialCategoryState);
+
+  const handleInsert = (categoryName: string) => {
+    const newValue = [...categoryState, categoryName];
+    setCategoryState(newValue);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Title text="TO DO LIST" img={ListIcon} />
+      <Subtitle text="Categories" />
+      
+        {console.log(categoryState)}
+
+        {categoryState &&
+          categoryState.map((element) => {
+            return <Category key={element} category={element} />;
+          })}
+          
+      
+      <div className="App-adder">
+        
+        <ElementAdder handleIns={handleInsert} categoryList={categoryState} />
+      </div>
     </div>
   );
 }

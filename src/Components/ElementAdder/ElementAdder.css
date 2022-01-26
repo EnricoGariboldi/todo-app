@@ -1,0 +1,142 @@
+
+@media (min-width: 568px){
+
+    .ElementAdder{
+        width: 300px;
+        height: 60px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: black;
+        border-radius: 10px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    .ElementAdder-img {
+        width: 25px;
+        height: 25px;
+        margin: auto
+    }
+    
+    img {
+        width: inherit;
+        height: inherit;
+    }
+    
+    
+    .ElementAdder-input {
+    border-style:solid;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom-width: 1px;
+    border-color: black;
+    width: 250px;
+    font-size: 24px;
+    margin: auto;
+    }
+    
+    .ElementAdder-input:focus {
+        outline: none;
+        }
+
+   
+    
+}
+
+@media (min-width: 768px){
+
+    .ElementAdder{
+        width: 300px;
+        height: 60px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: black;
+        border-radius: 10px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    .ElementAdder-img {
+        width: 25px;
+        height: 25px;
+        margin: auto
+    }
+    
+    img {
+        width: inherit;
+        height: inherit;
+    }
+    
+    
+    .ElementAdder-input {
+    border-style:solid;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom-width: 1px;
+    border-color: black;
+    width: 250px;
+    font-size: 24px;
+    margin: auto;
+    }
+    
+    .ElementAdder-input:focus {
+        outline: none;
+        }
+
+
+}
+
+
+@media (min-width: 1200px){
+
+.ElementAdder{
+    width: 300px;
+    height: 60px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+
+.ElementAdder-img {
+    width: 25px;
+    height: 25px;
+    margin: auto
+}
+
+img {
+    width: inherit;
+    height: inherit;
+}
+
+
+.ElementAdder-input {
+border-style:solid;
+border-top: 0;
+border-right: 0;
+border-left: 0;
+border-bottom-width: 1px;
+border-color: black;
+width: 250px;
+font-size: 24px;
+margin: auto;
+}
+
+.ElementAdder-input:focus {
+    outline: none;
+    }
+
+}
+

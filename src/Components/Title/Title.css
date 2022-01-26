@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+@media (min-width: 568px){
+    .Title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: auto;
+        margin-top: 5%;
+    }
+    
+    .Title-text {
+        font-size: 72px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+    }
+    
+    .Title-icon {
+        width: 62px;
+        height: 62px;
+    }
+    
+    img {
+        width: inherit;
+        height: inherit;
+    }
+   
+    
+    }
+    
+    @media (min-width: 768px){
+        .Title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5%;
+        }
+        
+        .Title-text {
+            font-size: 72px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+        }
+        
+        .Title-icon {
+            width: 62px;
+            height: 62px;
+            margin-left: 1%;
+        }
+        
+        img {
+            width: inherit;
+            height: inherit;
+        }
+    
+    
+    }
+    
+    
+    @media (min-width: 1200px){
+    
+        .Title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: auto;
+            margin-top: 10%;
+        }
+        
+        .Title-text {
+            font-size: 72px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+        }
+        
+        .Title-icon {
+            width: 62px;
+            height: 62px;
+        }
+        
+        img {
+            width: inherit;
+            height: inherit;
+        }
+    }
