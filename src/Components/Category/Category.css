@@ -2,15 +2,17 @@
   .Category {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 1%;
+    
   }
 
   .Category-bin {
     width: 25px;
     height: 25px;
     display: flex;
-    margin: auto 0 auto 0;
-    margin-left: 1vw;
+    margin: 15px;
+    cursor: pointer;
   }
 
   .Category-box {
@@ -23,13 +25,14 @@
     background-color: white;
     display: flex;
     align-items: center;
-    margin-left: 3vw;
+    cursor: pointer;
   }
 
   .Category-text {
     font-size: 24px;
     font-weight: bolder;
-    margin-left: 2%;
+    text-align: start;
+    margin-left: 1vw
   }
 }
 
@@ -37,15 +40,17 @@
   .Category {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 1%;
+    
   }
 
   .Category-bin {
     width: 25px;
     height: 25px;
     display: flex;
-    margin: auto 0 auto 0;
-    margin-left: 1vw;
+    margin: 15px;
+    cursor: pointer;
   }
 
   .Category-box {
@@ -58,13 +63,14 @@
     background-color: white;
     display: flex;
     align-items: center;
-    margin-left: 3vw;
+    cursor: pointer;
   }
 
   .Category-text {
     font-size: 24px;
     font-weight: bolder;
-    margin-left: 2%;
+    text-align: start;
+    margin-left: 1vw
   }
 }
 
@@ -72,15 +78,17 @@
   .Category {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 1%;
+    
   }
 
   .Category-bin {
     width: 25px;
     height: 25px;
     display: flex;
-    margin: auto 0 auto 0;
-    margin-left: 1vw;
+    margin: 15px;
+    cursor: pointer;
   }
 
   .Category-box {
@@ -93,12 +101,13 @@
     background-color: white;
     display: flex;
     align-items: center;
-    margin-left: 3vw;
+    cursor: pointer;
   }
 
   .Category-text {
     font-size: 24px;
     font-weight: bolder;
-    margin-left: 2%;
+    text-align: start;
+    margin-left: 1vw
   }
 }

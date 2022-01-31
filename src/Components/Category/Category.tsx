@@ -1,24 +1,29 @@
 import React from "react";
 import "./Category.css";
 import Bin from "../../Media/bin.png"
+import { ArtArray } from "../../Store/Slices/StateSlice";
 
 interface Props {
-  category: string;
+  category: ArtArray;
+ clickHandler : (category : ArtArray ) => void
 }
 
-const Category: React.FC<Props> = ({ category }) => {
+const Category: React.FC<Props> = ({ category, clickHandler }) => {
+
+  
   return (
       <div className="Category">
     <div className="Category-box">
       <div className="Category-text">
-          {category}
+          { category.categoryName}
           </div>
     </div>
 
-    <div className="Category-bin">
-    <img src={Bin} alt='bin' />
+    <div className="Category-bin" onClick={ () => {
+      clickHandler(category)
+    }} >
+    <img src={Bin} alt='bin'  />
     </div>
-
     </div>
   );
 };

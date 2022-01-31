@@ -129,9 +129,9 @@ border-right: 0;
 border-left: 0;
 border-bottom-width: 1px;
 border-color: black;
-width: 250px;
+width: 230px;
 font-size: 24px;
-margin: auto;
+margin:auto
 }
 
 .ElementAdder-input:focus {
