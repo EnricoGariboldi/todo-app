@@ -7,11 +7,10 @@ import Category from "./Components/Category/Category";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../src/Store/Hooks";
 import { insertCat, deleteCat } from "./Store/Slices/StateSlice";
-import {ArtArray} from './Store/Slices/StateSlice'
+import { ArtArray } from "./Store/Slices/StateSlice";
 
 function App() {
   const navigate = useNavigate();
-  
 
   const CategoriesSelected = useAppSelector(
     (state) => state.categories.categories
@@ -29,10 +28,10 @@ function App() {
   };
 
   const deleteHandler = (category: ArtArray) => {
-   dispatch(deleteCat(category))
+    dispatch(deleteCat(category));
   };
 
-  const navigateToArticle = (element: string ) => {
+  const navigateToArticle = (element: string) => {
     navigate("/article-list", { state: element });
   };
 
@@ -41,28 +40,28 @@ function App() {
       <Title text="TO DO LIST" img={ListIcon} />
       <Subtitle text="Categories" />
 
-      {CategoriesSelected && CategoriesSelected.length>0 &&
+      {CategoriesSelected &&
+        CategoriesSelected.length > 0 &&
         CategoriesSelected.map((element) => {
-          
-          
           return (
-            <div
-            >
-              {
-                element &&
-                <Category category={element} navigateHandler={navigateToArticle} clickHandler={deleteHandler} />
-                
-                }
-                
+            <div>
+              {element && (
+                <Category
+                  category={element}
+                  navigateHandler={navigateToArticle}
+                  clickHandler={deleteHandler}
+                />
+              )}
             </div>
-
-                
-
           );
         })}
 
       <div className="App-adder">
-        <ElementAdder handleIns={handleInsert} />
+        <ElementAdder
+          handleIns={handleInsert}
+          adderType="Categories"
+          categoryActive=""
+        />
         <div className="App-container-spacing"></div>
       </div>
     </div>

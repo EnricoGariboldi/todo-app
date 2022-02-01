@@ -2,12 +2,19 @@ import React, { useState } from "react";
 import "./ElementAdder.css";
 import Tick from "../../Media/tick.png";
 import { useAppSelector } from "../../Store/Hooks";
+import { ArtArray } from "../../Store/Slices/StateSlice";
 
 interface Props {
-  handleIns: (value: string) => void;
+  handleIns: (whatToInsert: string) => void;
+  adderType: string;
+  categoryActive: string | unknown;
 }
 
-const ElementAdder: React.FC<Props> = ({ handleIns }) => {
+const ElementAdder: React.FC<Props> = ({
+  handleIns,
+  adderType,
+  categoryActive,
+}) => {
   const CategoriesSelected = useAppSelector(
     (state) => state.categories.categories
   );
@@ -16,7 +23,9 @@ const ElementAdder: React.FC<Props> = ({ handleIns }) => {
     isWrote: false,
   });
   const [insValue, setInsValue] = useState("");
-  const [isPresent, setIsPresent] = useState(false);
+  const [isArtPresent, setIsArtPresent] = useState(false);
+  let catObjectActive: ArtArray | undefined;
+  let isCatPresent = false;
 
   const verifyValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value !== null && e.target.value !== "") {
@@ -40,20 +49,54 @@ const ElementAdder: React.FC<Props> = ({ handleIns }) => {
         }}
         onKeyDown={(e) => {
           if (e.key === "Enter" && insValue !== "") {
-            
-            for (let index = 0; index < CategoriesSelected.length; index++) {
-              if ( insValue === CategoriesSelected[index].categoryName) {
-                setIsPresent(true)
-              } 
+            if (adderType === "Categories") {
+              CategoriesSelected.forEach((element) => {
+                if (insValue === element.categoryName) {
+                  
+                  isCatPresent = true;
+                }
+              });
+
+              if (isCatPresent === true) {
+                window.alert("Elemento già inserito");
+              } else {
+                handleIns(insValue);
+                (
+                  document.getElementById("inputtext") as HTMLInputElement
+                ).value = "";
+                setInsValue("");
+                setControlVariables({ isWrote: false });
+              }
             }
-            if(isPresent === true) {
-            window.alert("Elemento già inserito");
-            } else {
-              handleIns(insValue);
-              (document.getElementById("inputtext") as HTMLInputElement).value =
-                "";
-              setInsValue("");
-              setControlVariables({ isWrote: false });
+
+            if (adderType === "Articles") {
+              for (
+                let indexCat = 0;
+                indexCat < CategoriesSelected.length;
+                indexCat++
+              ) {
+                catObjectActive = CategoriesSelected.find(
+                  (element) => element.categoryName === categoryActive
+                );
+              }
+
+              catObjectActive
+                ? catObjectActive.articleList.forEach((element) => {
+                    if (insValue === element) {
+                      setIsArtPresent(true);
+                    }
+                  })
+                : window.alert("Categoria non trovata");
+              if (isArtPresent === true) {
+                window.alert("Articolo già inserito");
+              } else {
+                handleIns(insValue);
+                (
+                  document.getElementById("inputtext") as HTMLInputElement
+                ).value = "";
+                setInsValue("");
+                setControlVariables({ isWrote: false });
+              }
             }
           }
         }}
