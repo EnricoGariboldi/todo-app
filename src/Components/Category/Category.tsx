@@ -6,14 +6,17 @@ import { ArtArray } from "../../Store/Slices/StateSlice";
 interface Props {
   category: ArtArray;
  clickHandler : (category : ArtArray ) => void
+ navigateHandler : (element: string) => void
 }
 
-const Category: React.FC<Props> = ({ category, clickHandler }) => {
+const Category: React.FC<Props> = ({ category, clickHandler, navigateHandler }) => {
 
   
   return (
       <div className="Category">
-    <div className="Category-box">
+    <div className="Category-box" onClick={ () => {
+      navigateHandler(category.categoryName)
+    }}>
       <div className="Category-text">
           { category.categoryName}
           </div>

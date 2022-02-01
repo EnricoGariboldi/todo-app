@@ -3,6 +3,13 @@
 
 @media (min-width: 568px){
 
+    .Subtitle {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+
     .Subtitle-text {
         font-size: 48px;
         font-family: 'Roboto', sans-serif;
@@ -10,12 +17,29 @@
         color: #767A7B;
         margin-bottom: 5%;
     }
+
+    .Subtitle-container-spacing {
+        width: 35px;
+        height: 25px;
+        margin:15px;
+      }
+      .Subtitle-onclick-div {
+        width: inherit;
+        height: inherit; 
+        cursor: pointer;
+     }
    
     
 }
 
 @media (min-width: 768px){
 
+    .Subtitle {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
     .Subtitle-text {
         font-size: 48px;
         font-family: 'Roboto', sans-serif;
@@ -24,11 +48,27 @@
         margin-bottom: 5%;
     }
 
+    .Subtitle-container-spacing {
+        width: 35px;
+        height: 25px;
+        margin:15px;
+      }
+      .Subtitle-onclick-div {
+        width: inherit;
+        height: inherit; 
+        cursor: pointer;
+     }
 
 }
 
 
 @media (min-width: 1200px){
+
+    .Subtitle {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
 
 .Subtitle-text {
     font-size: 48px;
@@ -38,5 +78,16 @@
     margin-bottom: 5%;
 }
 
+.Subtitle-container-spacing {
+    width: 35px;
+    height: 25px;
+    margin:15px;
+  }
+
+.Subtitle-onclick-div {
+   width: inherit;
+   height: inherit; 
+   cursor: pointer;
+}
 
 }

@@ -47,16 +47,17 @@ function App() {
           
           return (
             <div
-              onClick={() => {
-                navigateToArticle(element.categoryName);
-              }}
             >
               {
                 element &&
-                <Category category={element} clickHandler={deleteHandler} />
+                <Category category={element} navigateHandler={navigateToArticle} clickHandler={deleteHandler} />
                 
                 }
+                
             </div>
+
+                
+
           );
         })}
 

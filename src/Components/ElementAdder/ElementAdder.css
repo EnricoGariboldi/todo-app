@@ -36,7 +36,8 @@
     border-color: black;
     width: 250px;
     font-size: 24px;
-    margin: auto;
+    margin-right : auto;
+    margin-left : 3%;
     }
     
     .ElementAdder-input:focus {
@@ -84,7 +85,8 @@
     border-color: black;
     width: 250px;
     font-size: 24px;
-    margin: auto;
+    margin-right : auto;
+    margin-left : 3%;
     }
     
     .ElementAdder-input:focus {
@@ -131,7 +133,8 @@ border-bottom-width: 1px;
 border-color: black;
 width: 230px;
 font-size: 24px;
-margin:auto
+margin-right : auto;
+margin-left : 3%;
 }
 
 .ElementAdder-input:focus {
