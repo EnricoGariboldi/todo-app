@@ -23,7 +23,7 @@ const ElementAdder: React.FC<Props> = ({
     isWrote: false,
   });
   const [insValue, setInsValue] = useState("");
-  const [isArtPresent, setIsArtPresent] = useState(false);
+  let isArtPresent = false;
   let catObjectActive: ArtArray | undefined;
   let isCatPresent = false;
 
@@ -70,23 +70,19 @@ const ElementAdder: React.FC<Props> = ({
             }
 
             if (adderType === "Articles") {
-              for (
-                let indexCat = 0;
-                indexCat < CategoriesSelected.length;
-                indexCat++
-              ) {
-                catObjectActive = CategoriesSelected.find(
-                  (element) => element.categoryName === categoryActive
-                );
-              }
 
-              catObjectActive
-                ? catObjectActive.articleList.forEach((element) => {
+              CategoriesSelected.forEach(element => {
+                if(element.categoryName === categoryActive) {
+                  catObjectActive = element
+                }
+              })
+
+               catObjectActive?.articleList.forEach((element) => {
                     if (insValue === element) {
-                      setIsArtPresent(true);
+                      isArtPresent = true;
                     }
                   })
-                : window.alert("Categoria non trovata");
+
               if (isArtPresent === true) {
                 window.alert("Articolo già inserito");
               } else {

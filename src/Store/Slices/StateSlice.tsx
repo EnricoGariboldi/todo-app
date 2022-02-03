@@ -34,6 +34,10 @@ export const StateSlice = createSlice({
     }
   },
 });
+
+
+
+
 export const { insertCat, deleteCat, insertArt } = StateSlice.actions;
 export const categorySelected = (state: RootState) =>
   state.categories.categories;

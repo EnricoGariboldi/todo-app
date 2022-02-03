@@ -16,15 +16,19 @@
     background-color: white;
     display: flex;
     align-items: center;
-    cursor: pointer;
   }
 
   .Article-text {
+    width: 90%;
     font-size: 24px;
     font-weight: bolder;
     text-align: start;
     margin-left: 1vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
+
 }
 
 @media (min-width: 768px) {
@@ -45,14 +49,17 @@
     background-color: white;
     display: flex;
     align-items: center;
-    cursor: pointer;
   }
 
   .Article-text {
+    width: 90%;
     font-size: 24px;
     font-weight: bolder;
     text-align: start;
     margin-left: 1vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }
 
@@ -74,13 +81,18 @@
     background-color: white;
     display: flex;
     align-items: center;
-    cursor: pointer;
   }
 
   .Article-text {
+    width: 90%;
     font-size: 24px;
     font-weight: bolder;
     text-align: start;
     margin-left: 1vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
+
+  
 }
