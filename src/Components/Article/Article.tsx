@@ -1,34 +1,88 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Article.css";
 import Checkbox from "@mui/material/Checkbox";
+import { useAppSelector, useAppDispatch } from "../../Store/Hooks";
+import {
+  completeArt,
+  deleteCompletedArt,
+} from "../../Store/Slices/CompletedSlice";
+import { deleteArt, insertArt } from "../../Store/Slices/StateSlice";
+import type { articleInfo } from "../../ArticleList";
 
 interface Props {
   article: string;
+  categoryName: string;
+  categoryIndex: number;
 }
 
-const Article: React.FC<Props> = ({ article }) => {
+export type objToComplete = {
+  articleName: string;
+  categoryName: string;
+  categoryIndex: number;
+};
+
+const Article: React.FC<Props> = ({ article, categoryName, categoryIndex }) => {
+  const ArticleSelected = useAppSelector((state) => state.completed.items);
+  const CategoriesSelected = useAppSelector(
+    (state) => state.categories.categories
+  );
+
+  const dispatch = useAppDispatch();
 
   const [checked, setChecked] = useState(false);
 
-  const changeText = () => {
-    if(checked === false) {
-    document.getElementById(article)!.style.textDecoration = 'line-through'
-    setChecked(true)
+  const articleToComplete: objToComplete = {
+    articleName: article,
+    categoryName: categoryName,
+    categoryIndex: categoryIndex,
+  };
+
+  const articleToHandle: articleInfo = {
+    category: categoryIndex,
+    article: article,
+  };
+
+  useEffect(() => {
+    const exist = ArticleSelected.find(
+      (element) => element.articleName === article
+    );
+    if (exist) {
+      setChecked(true);
+    } else {
+      setChecked(false);
     }
-    if(checked === true) {
-      document.getElementById(article)!.style.textDecoration = 'none'
-      setChecked(false)
-    }
-    
-  }
+  }, [checked]);
+
+  const deleteComplete = () => {
+    dispatch(insertArt(articleToHandle));
+    dispatch(deleteCompletedArt(articleToComplete));
+  };
+
+  const insertComplete = () => {
+    dispatch(completeArt(articleToComplete));
+    dispatch(deleteArt(articleToHandle));
+  };
 
   return (
     <div className="Article">
       <div className="Article-box">
-        <div className="Article-text" id={article}>{article}</div>
-        
-          <Checkbox checked={checked} onChange={changeText} />
-        
+        <div className="Article-text" id={article}>
+          {article}
+        </div>
+
+        <Checkbox
+          checked={checked}
+          onChange={(e) => {
+            if (e.target.checked === false) {
+              deleteComplete();
+              setChecked(e.target.checked);
+            }
+            if (e.target.checked === true) {
+              insertComplete();
+              setChecked(e.target.checked);
+            }
+          }}
+        />
       </div>
     </div>
   );

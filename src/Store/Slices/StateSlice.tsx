@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../Store";
+
 import type { articleInfo } from "../../ArticleList";
 
 export type ArtArray = {
@@ -31,6 +31,11 @@ export const StateSlice = createSlice({
     insertArt: (state, action: PayloadAction<articleInfo>) => {  
       const spread = state.categories[action.payload.category].articleList
       state.categories[action.payload.category].articleList = [...spread, action.payload.article]
+    },
+    deleteArt: (state, action: PayloadAction<articleInfo>) => {  
+      const ArtUpdated = state.categories[action.payload.category].articleList.filter(element => element !== action.payload.article)
+        state.categories[action.payload.category].articleList = ArtUpdated
+      
     }
   },
 });
@@ -38,7 +43,5 @@ export const StateSlice = createSlice({
 
 
 
-export const { insertCat, deleteCat, insertArt } = StateSlice.actions;
-export const categorySelected = (state: RootState) =>
-  state.categories.categories;
+export const { insertCat, deleteCat, insertArt, deleteArt } = StateSlice.actions;
 export default StateSlice.reducer;

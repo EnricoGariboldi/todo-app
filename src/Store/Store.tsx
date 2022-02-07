@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import StateSliceReducer from './Slices/StateSlice'
+import CompletedSliceReducer from './Slices/CompletedSlice'
 
 export const Store = configureStore({
     reducer : {
-        categories : StateSliceReducer
+        categories : StateSliceReducer,
+        completed : CompletedSliceReducer
     }
 });
 

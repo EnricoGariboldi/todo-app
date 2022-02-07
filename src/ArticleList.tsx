@@ -21,16 +21,21 @@ const ArticleList = () => {
   );
   const categoryNameActive = location.state;
   let catIndex = 0;
-  CategoriesSelected.forEach((element) => {
+
+  const ArticleSelected = useAppSelector(
+    (state) => state.completed.items
+  );
+
+
     catIndex = CategoriesSelected.findIndex((element) => {
       return element.categoryName === location.state;
     });
-  });
+    const CompleteArticlesCat = ArticleSelected.filter(element => element.categoryName === categoryNameActive)
   
   const handleArticleInsert = (
     articlePassed: string ) => {
     
-    const insertInfo = {
+     const insertInfo = {
       category: catIndex,
       article: articlePassed,
     };
@@ -43,16 +48,29 @@ const ArticleList = () => {
       <Title text="TO DO LIST" img={ListIcon} />
       <Subtitle text={`${location.state}`} />
 
+      <div className="ArticleList-todo-box">
+      <div className="ArticleList-todo">To do</div>
+      </div>
+
       {CategoriesSelected[catIndex] && CategoriesSelected[catIndex].articleList.length > 0
         && CategoriesSelected[catIndex].articleList.map(element => {
+
+            const categoryName =  CategoriesSelected[catIndex].categoryName
+
+          const articleInfoObj = {
+            categoryIndex : catIndex,
+            category: categoryName,
+            article : element
+          }
+          
+
           return(
             <div> 
-              <Article article={element}/>
+              <Article article={articleInfoObj.article} categoryName={articleInfoObj.category} categoryIndex={articleInfoObj.categoryIndex}/>
             </div>
           )
         })
       }
-
       <div className="ArticleList-ArtAdder">
         <ElementAdder
           handleIns={handleArticleInsert}
@@ -60,6 +78,24 @@ const ArticleList = () => {
           categoryActive={categoryNameActive}
         />
       </div>
+
+      {  CompleteArticlesCat && CompleteArticlesCat.length > 0 ? (
+                <div className="ArticleList-todo-box">
+                <div className="ArticleList-todo">Completed</div>
+                </div>
+      ) : ('')
+      }
+      {  CompleteArticlesCat && CompleteArticlesCat.length > 0 ? (
+        CompleteArticlesCat.map(element => {
+          return(
+            <div className="ArticleList-crossedArt"> 
+              <Article article={element.articleName} categoryName={element.categoryName} categoryIndex={element.categoryIndex} />
+            </div>
+          )
+        })
+  ) : ('')
+      }
+
     </div>
   );
 };
