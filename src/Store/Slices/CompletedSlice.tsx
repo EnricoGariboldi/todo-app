@@ -23,12 +23,6 @@ export const CompletedSlice = createSlice({
 
       const indexToRemove = state.items.findIndex(element => element.articleName === action.payload.articleName)
       state.items.splice(indexToRemove, 1)
-    //  console.log(completedUpdated)
-      /*
-      const completedUpdated = state.items.filter(element => element.articleName !== action.payload.articleName && element.categoryName === action.payload.categoryName)
-      console.log(completedUpdated)
-      */
-     // state.items = completedUpdated;
     },
   },
 });

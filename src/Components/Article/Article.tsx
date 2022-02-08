@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./Article.css";
-import Checkbox from "@mui/material/Checkbox";
 import { useAppSelector, useAppDispatch } from "../../Store/Hooks";
 import {
   completeArt,
@@ -23,9 +22,6 @@ export type objToComplete = {
 
 const Article: React.FC<Props> = ({ article, categoryName, categoryIndex }) => {
   const ArticleSelected = useAppSelector((state) => state.completed.items);
-  const CategoriesSelected = useAppSelector(
-    (state) => state.categories.categories
-  );
 
   const dispatch = useAppDispatch();
 
@@ -70,19 +66,23 @@ const Article: React.FC<Props> = ({ article, categoryName, categoryIndex }) => {
           {article}
         </div>
 
-        <Checkbox
-          checked={checked}
-          onChange={(e) => {
-            if (e.target.checked === false) {
-              deleteComplete();
-              setChecked(e.target.checked);
-            }
-            if (e.target.checked === true) {
-              insertComplete();
-              setChecked(e.target.checked);
-            }
-          }}
-        />
+        <label className="container">
+          <input
+            type="checkbox"
+            checked={checked}
+            onChange={(e) => {
+              if (e.target.checked === false) {
+                deleteComplete();
+                setChecked(e.target.checked);
+              }
+              if (e.target.checked === true) {
+                insertComplete();
+                setChecked(e.target.checked);
+              }
+            }}
+          />
+          <span className="checkmark"></span>
+        </label>
       </div>
     </div>
   );

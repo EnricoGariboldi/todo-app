@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ElementAdder.css";
 import Tick from "../../Media/tick.png";
 import { useAppSelector } from "../../Store/Hooks";
-import { ArtArray } from "../../Store/Slices/StateSlice";
+// import { ArtArray } from "../../Store/Slices/StateSlice";
 
 interface Props {
   handleIns: (whatToInsert: string) => void;
@@ -18,13 +18,14 @@ const ElementAdder: React.FC<Props> = ({
   const CategoriesSelected = useAppSelector(
     (state) => state.categories.categories
   );
+  const ArticleSelected = useAppSelector((state) => state.completed.items);
 
   const [ControlVariables, setControlVariables] = useState({
     isWrote: false,
   });
   const [insValue, setInsValue] = useState("");
   let isArtPresent = false;
-  let catObjectActive: ArtArray | undefined;
+  // let catObjectActive: ArtArray | undefined;
   let isCatPresent = false;
 
   const verifyValue = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,7 +53,6 @@ const ElementAdder: React.FC<Props> = ({
             if (adderType === "Categories") {
               CategoriesSelected.forEach((element) => {
                 if (insValue === element.categoryName) {
-                  
                   isCatPresent = true;
                 }
               });
@@ -70,18 +70,34 @@ const ElementAdder: React.FC<Props> = ({
             }
 
             if (adderType === "Articles") {
+              CategoriesSelected.forEach((element) => {
 
-              CategoriesSelected.forEach(element => {
-                if(element.categoryName === categoryActive) {
-                  catObjectActive = element
-                }
-              })
-
-               catObjectActive?.articleList.forEach((element) => {
-                    if (insValue === element) {
+                  element.articleList.forEach(element2 => {
+                    if (insValue === element2) {
                       isArtPresent = true;
                     }
-                  })
+                  }) 
+
+                  /*
+                if (element.categoryName === categoryActive) {
+                  catObjectActive = element;
+                }
+                */
+              });
+              /*
+              catObjectActive?.articleList.forEach((element) => {
+                if (insValue === element) {
+                  isArtPresent = true;
+                }
+              });
+                */
+              ArticleSelected.forEach((element) => {
+                if (
+                  insValue === element.articleName 
+                ) {
+                  isArtPresent = true;
+                }
+              });
 
               if (isArtPresent === true) {
                 window.alert("Articolo già inserito");
