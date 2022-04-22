@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 this single-page application is intended for mobileL/tablet and upper experience.
 
 it simulates a list of home chores, task to be done, etc...
@@ -5,4 +6,13 @@ it permits to create and delete categories, and inside each one you can
 add elements which can be moved from the "still to do list" to the "done list"
 by clicking a checkbox. They can be added back and so on.
 
+=======
+this single-page application is intended for mobileL/tablet and upper experience.
+
+it simulates a list of home chores, task to be done, etc...
+it permits to create and delete categories, and inside each one you can
+add elements which can be moved from the "still to do list" to the "done list"
+by clicking a checkbox. They can be added back and so on.
+
+>>>>>>> 9bb8789a9eb4f173ef0983af913fe05f9b762d57
 The project features the use of Redux Toolkit.
